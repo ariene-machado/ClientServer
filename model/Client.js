@@ -16,7 +16,6 @@ var ClientSchema = new Schema({
     photo: String,
     comment: String,
     photo: String,
-    documents: String,
     note: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment",

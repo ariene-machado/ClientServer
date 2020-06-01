@@ -47,8 +47,7 @@ router.post("/add", function(req, res) {
             zip: req.body.zip,
             state: req.body.state,
             photo: req.body.photo,
-            comment: req.body.comment,
-            documents: req.body.document,
+            comment: req.body.comment
         },
         function(err) {
             if (err) {
@@ -61,6 +60,8 @@ router.post("/add", function(req, res) {
         }
     )
 });
+
+
 
 //Creating comment
 router.post("/add-comment", function(req, res) {
@@ -90,6 +91,17 @@ router.get("/comment", (req, res) => {
         });
 });
 
+//List all clients
+router.get("/all-clients", (req, res) => {
+    Client.find({}, function(err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(result);
+        }
+    });
+});
+
 //list Client
 router.get('/client/:id', (req, res) => {
     var user = [];
@@ -108,8 +120,7 @@ router.get('/client/:id', (req, res) => {
         });
 });
 
-//Edit Client
 //Delete Client
-//Upload files
+//Update client
 
 module.exports = router;
